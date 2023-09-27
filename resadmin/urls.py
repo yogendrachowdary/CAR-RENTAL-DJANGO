@@ -8,5 +8,9 @@ urlpatterns = [
         path("admincustomer", views.admincustomer, name="admincustomer"),
         path("admincar", views.admincar, name="admincar"),
         path("adminlgout", views.adminlogout, name="adminlogout"),
+        path("checkadminlogin", views.checkadminlogin, name="checkadminlogin"),
+
+
+
 
 ]

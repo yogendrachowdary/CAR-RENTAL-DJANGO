@@ -19,15 +19,15 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),       #this means if you type /admin you will be redirected to admin console
     path("", views.demofunction,name="demo"),
     path("demo1", views.demofunction1,name="demo"),
-    path("demo2", views.demofunction2, name="demo"),
+    path("demo2", views.demofunction2, name="demo"),  #1.url 2.function name 3. name
     path("home", views.home, name="home"),
     path("about", views.about, name="about"),
     path("login", views.login, name="login"),
     path("contactus", views.contactus, name="contactus"),
-    path("",include("resadmin.urls")),
+    path("",include("resadmin.urls")),  #this will check for urls in resadmin app's urls.py
     # path("",include("resowner.urls")),
     # path("",include("resuser.urls")),
 

@@ -5,7 +5,7 @@ from django.shortcuts import render
 def demofunction(request):
     return HttpResponse("Hii this is a HTTP response")
 def demofunction1(request):
-    return HttpResponse("Hii this is a HTTP response 2")
+    return HttpResponse("Hii this is a HTTP response 2")  #httpresponse means just a string
 def demofunction2(request):
     return HttpResponse("Hii this is a HTTP response 3")
 def home(request):

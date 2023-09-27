@@ -9,12 +9,15 @@
 </head>
 <body>
     <h2>Login</h2>
-    <form >
+    <form method="post" action="{% url 'checkadminlogin' %}">
+        <!--csrf token is used for security and must when method is post-->
+        {% csrf_token %}
+
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+        <input type="text" id="username" name="uname" required><br><br>
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+        <input type="password" id="password" name="pwd" required><br><br>
 
         <input type="submit" value="Login">
     </form>
