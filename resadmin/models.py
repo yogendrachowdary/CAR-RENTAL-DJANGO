@@ -16,8 +16,7 @@ class Admin(models.Model):
 
 
 class Customer(models.Model):
-    id=models.AutoField(primary_key=True)
-    customerid=models.BigIntegerField(blank=False,unique=True)
+    customerid=models.AutoField(primary_key=True)
     city=models.CharField(max_length=100,blank=False)
     name=models.CharField(max_length=100,blank=False)
     gender_choices=(("male","MALE"),("female","FEMALE"))

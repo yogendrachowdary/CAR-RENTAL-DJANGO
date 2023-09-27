@@ -1,7 +1,46 @@
 {% extends 'adminhome.html' %}
 
 {% block 'body' %}
-<title>  {% block 'title' %} admin car{% endblock %}</title>
+<title>{% block 'title' %}admin car{% endblock %}</title>
 
-<h2>this is Admin CAr page</h2>
+<style>
+    /* Internal CSS for table styling */
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: auto;
+    }
+
+    th, td {
+        border: 2px solid #000;
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #333;
+        color: white;
+    }
+</style>
+
+<center><h1>This is Admin Car page</h1></center>
+<center><u><h2>View all Cars</h2></u></center>
+
+<table align="center">
+    <tr align="center">
+        <th>Model</th>
+        <th>Colour</th>
+        <th>Capacity</th>
+    </tr>
+        
+    {% for c in cardata %}
+    <tr align="center">
+        <td>{{ c.model }}</td>
+        <td>{{ c.color }}</td>
+        <td>{{ c.capacity }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}

@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.db.models import Q
 
 
-from resadmin.models import Admin
+from resadmin.models import Admin, Car, Customer
 
 
 # Create your views here.
@@ -15,10 +15,12 @@ def changepassword(request):
     return render(request, "changepassword.html")
 
 def admincustomer(request):
-    return render(request, "admincustomer.html")
+    customer=Customer.objects.all()
+    return render(request, "admincustomer.html",{"customerdata":customer})
 
 def admincar(request):
-    return render(request, "admincar.html")
+    car=Car.objects.all()
+    return render(request, "admincar.html",{"cardata":car})
 
 def adminlogout(request):
     return render(request, "login.html")
@@ -35,7 +37,6 @@ def checkadminlogin(request):
             return HttpResponse("Login Failed")
 
 
-        
 
     
     
