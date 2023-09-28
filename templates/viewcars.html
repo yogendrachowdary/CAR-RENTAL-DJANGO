@@ -30,6 +30,7 @@
 
 <table align="center">
     <tr align="center">
+        <th>Car ID</th>
         <th>Model</th>
         <th>Colour</th>
         <th>Capacity</th>
@@ -37,6 +38,7 @@
         
     {% for c in cardata %}
     <tr align="center">
+        <td>{{c.id}}</td>
         <td>{{ c.model }}</td>
         <td>{{ c.color }}</td>
         <td>{{ c.capacity }}</td>

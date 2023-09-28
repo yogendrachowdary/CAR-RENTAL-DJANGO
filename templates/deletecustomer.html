@@ -1,0 +1,58 @@
+{% extends 'adminhome.html' %}
+
+{% block 'body' %}
+<title>{% block 'title' %}deletecustomer{% endblock %}</title>
+
+<style>
+    /* Internal CSS for table styling */
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: auto;
+    }
+
+    th, td {
+        border: 2px solid #000;
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #333;
+        color: white;
+    }
+</style>
+
+<center><h1>This is Admin Customer page</h1></center>
+<center><u><h2>Delete Customer</h2></u></center>
+<center><h3>Total Count:{{count}}</h3></center>
+<table align="center">
+    <tr align="center">
+        <th>Customer ID</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Action</th>
+
+    </tr>
+        
+    {% for cus in customerdata %}
+    <tr align="center">
+        <td>{{ cus.customerid }}</td>
+        <td>{{ cus.name }}</td>
+        <td>{{ cus.city }}</td>
+        <td>{{ cus.gender }}</td>
+        <td>{{ cus.age }}</td>
+        <td>{{ cus.email }}</td>
+        <td>{{ cus.contact }}</td>
+        <td><a href="customerdeletion/{{cus.customerid}}">Delete</a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

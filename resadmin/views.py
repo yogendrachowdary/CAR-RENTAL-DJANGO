@@ -58,6 +58,7 @@ def deletecar(request):
     return render(request,"deletecar.html")
 
 def admincustomers(request):
+
     return render(request,"admincustomers.html")
 
 def addcustomer(request):
@@ -92,11 +93,40 @@ def addcustomer(request):
     return render(request,"addcustomer.html")
 
 def updatecustomer(request):
-    return render(request,"updatecustomer.html")
+    customer=Customer.objects.all()
+    count=Customer.objects.count()
+    return render(request, "updatecustomer.html",{"customerdata":customer,"count":count})
+
+def customerupdation(request,cid):
+    if request.method == "POST":
+            customer = Customer.objects.get(pk=cid)
+            # Update customer fields with new data
+            customer.city = request.POST["city"]
+            customer.name = request.POST["name"]
+            customer.gender = request.POST["gender"]
+            customer.age = request.POST["age"]
+            customer.password = request.POST["password"]
+            customer.email = request.POST["email"]
+            customer.contact = request.POST["contact"]
+            Customer.save(customer)
+            return redirect("viewcustomers")
+    cus=Customer.objects.get(pk=cid)   #here pk means primary key it is keyword in django            
+    # return render(request,"customerupdation",{"cus":cus})
+    return render(request,"newcustomervalue.html",{"cus":cus})
+
 
 def deletecustomer(request):
-    return render(request,"deletecustomer.html")
+    customer=Customer.objects.all()
+    count=Customer.objects.count()
+    return render(request, "deletecustomer.html",{"customerdata":customer,"count":count})
 
+def customerdeletion(request,cid):
+    #Customer.objects.filter(customerid=cid).delete()   #here we are filtering based on id
+    # return HttpResponse("customerdeleted successfullly")
+    #WE can also write like this
+    cus=Customer.objects.get(pk=cid)   #here pk means primary key it is keyword in django
+    cus.delete()
+    return redirect("newcustomervalue")
 
 def adminlogout(request):
     return render(request, "login.html")

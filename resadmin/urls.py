@@ -14,7 +14,9 @@ urlpatterns = [
         path("admincustomers", views.admincustomers, name="admincustomers"),
         path("addcustomer", views.addcustomer, name="addcustomer"),
         path("deletecustomer", views.deletecustomer, name="deletecustomer"),
+        path("customerdeletion/<int:cid>", views.customerdeletion, name="customerdeletion"),
         path("updatecustomer", views.updatecustomer, name="updatecustomer"),
+        path("customerupdation/<int:cid>", views.customerupdation, name="customerupdation"),
         path("adminlgout", views.adminlogout, name="adminlogout"),
         path("checkadminlogin", views.checkadminlogin, name="checkadminlogin"),
 

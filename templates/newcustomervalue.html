@@ -4,7 +4,7 @@
 
 
 <head>
-    <title>{% block 'title' %} Add customer {% endblock %}</title>
+    <title>{% block 'title' %} update customer {% endblock %}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,44 +50,43 @@
 </head>
 <body>
     <div class="container">
-        <u><h2>ADD CUSTOMER</h2></u>
-        <h3 style="color: red;">{{msg}}</h3>
-        <form method="post" action="{% url 'addcustomer' %}">
+        <u><h2>UPDATE CUSTOMER</h2></u>
+        <form method="post" action="{% url 'customerupdation' cid=cus.customerid %}">
             {% csrf_token %}
             
             <div class="form-group">
                 <label for="city">City:</label>
-                <input type="text" id="city" name="city" required>
+                <input type="text" id="city" name="city" value="{{cus.city}}">
             </div>
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" value="{{cus.name}}">
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
-                <select id="gender" name="gender" required>
+                <select id="gender" name="gender" >
                     <option value="male">MALE</option>
                     <option value="female">FEMALE</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="age">Age:</label>
-                <input type="text" id="age" name="age" required>
+                <input type="text" id="age" name="age" value="{{cus.age}}">
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" value="12345" required>
+                <input type="password" id="password" name="password" value="{{cus.password}}" >
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" value="{{cus.email}}">
             </div>
             <div class="form-group">
                 <label for="contact">Contact:</label>
-                <input type="text" id="contact" name="contact" required>
+                <input type="text" id="contact" name="contact" value="{{cus.contact}}">
             </div>
             <div class="button-container">
-                <button class="button" type="submit">ADD</button>
+                <button class="button" type="submit">Update</button>
             </div>
         </form>
     </div>
