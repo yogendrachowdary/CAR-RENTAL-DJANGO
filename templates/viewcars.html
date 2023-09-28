@@ -1,7 +1,7 @@
 {% extends 'adminhome.html' %}
 
 {% block 'body' %}
-<title>{% block 'title' %}admin car{% endblock %}</title>
+<title>{% block 'title' %}viewcars {% endblock %}</title>
 
 <style>
     /* Internal CSS for table styling */
@@ -23,9 +23,10 @@
         color: white;
     }
 </style>
-
 <center><h1>This is Admin Car page</h1></center>
 <center><u><h2>View all Cars</h2></u></center>
+<center><h3>Total Count:{{count}}</h3></center>
+
 
 <table align="center">
     <tr align="center">

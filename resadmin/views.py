@@ -1,6 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.db.models import Q
+
 
 
 from resadmin.models import Admin, Car, Customer
@@ -14,13 +15,88 @@ def adminhome(request):
 def changepassword(request):
     return render(request, "changepassword.html")
 
-def admincustomer(request):
+def viewcustomers(request):
     customer=Customer.objects.all()
-    return render(request, "admincustomer.html",{"customerdata":customer})
+    count=Customer.objects.count()
+    return render(request, "viewcustomers.html",{"customerdata":customer,"count":count})
 
-def admincar(request):
+def viewcars(request):
     car=Car.objects.all()
-    return render(request, "admincar.html",{"cardata":car})
+    count=Car.objects.count()
+    return render(request, "viewcars.html",{"cardata":car,"count":count})
+
+def admincars(request):
+    return render(request,"admincars.html")
+
+from django.shortcuts import render, redirect
+from .models import Car  # Import the Car model
+
+def addcar(request):
+    if request.method == "POST":
+        model = request.POST["model"]
+        color = request.POST["color"]
+        capacity = request.POST["capacity"]
+
+        car = Car(
+            model=model,
+            color=color,
+            capacity=capacity
+        )
+        Car.save(car)
+
+        msg = "Car added Successfully!!"
+
+        return render(request, "addcar.html", {"msg": msg})
+
+    return render(request, "addcar.html")
+
+
+def updatecar(request):
+    return render(request,"updatecar.html")
+
+def deletecar(request):
+    return render(request,"deletecar.html")
+
+def admincustomers(request):
+    return render(request,"admincustomers.html")
+
+def addcustomer(request):
+    if request.method == "POST":
+        city = request.POST["city"]
+        name = request.POST["name"]
+        gender = request.POST["gender"]
+        age = request.POST["age"]
+        password = request.POST["password"]
+        email = request.POST["email"]
+        contact = request.POST["contact"]
+
+        customer = Customer(
+            city=city,
+            name=name,
+            gender=gender,
+            age=age,
+            password=password,
+            email=email,
+            contact=contact
+        )
+        Customer.save(customer)
+
+        msg="Customer added Successfully!!"
+
+        return render(request,"addcustomer.html",{"msg":msg})
+
+    return render(request, "addcustomer.html")
+
+
+
+    return render(request,"addcustomer.html")
+
+def updatecustomer(request):
+    return render(request,"updatecustomer.html")
+
+def deletecustomer(request):
+    return render(request,"deletecustomer.html")
+
 
 def adminlogout(request):
     return render(request, "login.html")

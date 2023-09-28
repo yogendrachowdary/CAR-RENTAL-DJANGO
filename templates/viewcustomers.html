@@ -1,7 +1,7 @@
 {% extends 'adminhome.html' %}
 
 {% block 'body' %}
-<title>{% block 'title' %}admin customer{% endblock %}</title>
+<title>{% block 'title' %}viewcustomers{% endblock %}</title>
 
 <style>
     /* Internal CSS for table styling */
@@ -26,7 +26,7 @@
 
 <center><h1>This is Admin Customer page</h1></center>
 <center><u><h2>View all Customers</h2></u></center>
-
+<center><h3>Total Count:{{count}}</h3></center>
 <table align="center">
     <tr align="center">
         <th>Customer ID</th>

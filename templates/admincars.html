@@ -1,0 +1,34 @@
+{% extends 'adminhome.html' %}
+
+{% block 'body' %}
+<title>{% block 'title' %}admin cars{% endblock %}</title>
+<head>
+    <style>
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 0 10px; /* Add spacing between buttons */
+            padding: 10px 20px;
+            background-color: #007bff; /* Blue color, you can change it */
+            color: #fff; /* Text color */
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <center><u><h2>Admin car Page</h2></u></center>
+    <div class="button-container">
+        <a href="{% url 'addcar' %}" class="button">Add car</a>
+        <a href="{% url 'viewcars' %}" class="button">View cars</a>
+        <a href="{% url 'deletecar' %}" class="button">Delete car</a>
+        <a href="{% url 'updatecar' %}" class="button">Update car</a>
+    </div>
+</body>
+{% endblock %}
