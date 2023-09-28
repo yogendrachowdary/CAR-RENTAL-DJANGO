@@ -50,6 +50,8 @@
         <td>{{ cus.email }}</td>
         <td>{{ cus.contact }}</td>
         <td><a href="customerupdation/{{cus.customerid}}">Update</a></td>
+        <!-- href="{% url 'customerupdation' cid=cus.customerid %}"  -->
+
 
     </tr>
     {% endfor %}
