@@ -126,7 +126,9 @@ def customerdeletion(request,cid):
     #WE can also write like this
     cus=Customer.objects.get(pk=cid)   #here pk means primary key it is keyword in django
     cus.delete()
-    return redirect("newcustomervalue")
+    return redirect("viewcustomers")
+    
+
 
 def adminlogout(request):
     return render(request, "login.html")
