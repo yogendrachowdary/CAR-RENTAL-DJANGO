@@ -53,5 +53,21 @@ class Car(models.Model):
 
 
 
+class Owner(models.Model):
+    ownerid = models.AutoField(primary_key=True)
+    city = models.CharField(max_length=100, blank=False)
+    name = models.CharField(max_length=100, blank=False)
+    gender_choices = (("male", "MALE"), ("female", "FEMALE"))
+    gender = models.CharField(max_length=10, blank=False, choices=gender_choices)
+    age = models.CharField(max_length=100, blank=False)
+    password = models.CharField(max_length=150, blank=False, default="12345")
+    email = models.CharField(max_length=120, blank=False, unique=True)
+    contact = models.CharField(max_length=20, blank=False, unique=True)
+
+    class Meta:
+        db_table = "owner_table"
+    
+    def __str__(self):
+        return self.name
 
 

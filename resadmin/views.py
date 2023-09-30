@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.db.models import Q
+from .forms import AddOwnerForm
 
 
 
@@ -145,9 +146,29 @@ def checkadminlogin(request):
             return HttpResponse("Login Failed")
 
 
+def adminowners(request):
+    return render(request,"adminowners.html")
+    
+def addowner(request):
+    form=AddOwnerForm()   #non parameterized constructor
+    if request.method=="POST":
+        form1=AddOwnerForm(request.POST)   #here request.POST means form data-parameterized constructor
+        if form1.is_valid:
+            form1.save()   #this will save the form data in the owner_table
+            # return HttpResponse("added successfully")
+            msg="Owner added Successfully"
+            return render(request,"addowner.html",{"form":form,"msg":msg})
+    return render(request,"addowner.html",{"form":form,"msg":msg})  
 
-    
-    
+def deleteowner(request):
+    return render(request,"deleteowner.html")  
+
+def updateowner(request):
+    return render(request,"updateowner.html")  
+
+def viewowners(request):
+    return render(request,"viewowners.html")  
+
 
 
 

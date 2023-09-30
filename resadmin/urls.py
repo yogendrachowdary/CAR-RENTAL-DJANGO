@@ -19,6 +19,13 @@ urlpatterns = [
         path("customerupdation/<int:cid>", views.customerupdation, name="customerupdation"),
         path("adminlgout", views.adminlogout, name="adminlogout"),
         path("checkadminlogin", views.checkadminlogin, name="checkadminlogin"),
+        path("adminowners", views.adminowners, name="adminowners"),
+        path("addowner", views.addowner, name="addowner"),
+        path("deleteowner", views.deleteowner, name="deleteowner"),
+        path("updateowner", views.updateowner, name="updateowner"),
+        path("viewowners", views.viewowners, name="viewowners"),
+
+
 
 
 

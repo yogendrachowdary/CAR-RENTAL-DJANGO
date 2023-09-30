@@ -1,0 +1,34 @@
+{% extends 'adminhome.html' %}
+
+{% block 'body' %}
+<title>{% block 'title' %}admin owners{% endblock %}</title>
+<head>
+    <style>
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 0 10px; /* Add spacing between buttons */
+            padding: 10px 20px;
+            background-color: #007bff; /* Blue color, you can change it */
+            color: #fff; /* Text color */
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <center><u><h2>Admin owner Page</h2></u></center>
+    <div class="button-container">
+        <a href="{% url 'addowner' %}" class="button">Add owner</a>
+        <a href="{% url 'viewowners' %}" class="button">View owners</a>
+        <a href="{% url 'deleteowner' %}" class="button">Delete owner</a>
+        <a href="{% url 'updateowner' %}" class="button">Update owner</a>
+    </div>
+</body>
+{% endblock %}
