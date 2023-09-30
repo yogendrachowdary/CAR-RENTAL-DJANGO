@@ -5,7 +5,7 @@ from .forms import AddOwnerForm
 
 
 
-from resadmin.models import Admin, Car, Customer
+from resadmin.models import Admin, Car, Customer,Owner
 
 
 # Create your views here.
@@ -150,6 +150,7 @@ def adminowners(request):
     return render(request,"adminowners.html")
     
 def addowner(request):
+    msg=""
     form=AddOwnerForm()   #non parameterized constructor
     if request.method=="POST":
         form1=AddOwnerForm(request.POST)   #here request.POST means form data-parameterized constructor
@@ -167,7 +168,10 @@ def updateowner(request):
     return render(request,"updateowner.html")  
 
 def viewowners(request):
-    return render(request,"viewowners.html")  
+    owner=Owner.objects.all()
+    count=Owner.objects.count()
+    return render(request, "viewowners.html",{"ownerdata":owner,"count":count})
+
 
 
 
