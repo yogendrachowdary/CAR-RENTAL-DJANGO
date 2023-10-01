@@ -34,6 +34,8 @@
         <th>Model</th>
         <th>Colour</th>
         <th>Capacity</th>
+        <th>OwnerID</th>
+
     </tr>
         
     {% for c in cardata %}
@@ -42,6 +44,8 @@
         <td>{{ c.model }}</td>
         <td>{{ c.color }}</td>
         <td>{{ c.capacity }}</td>
+        <td>{{ c.ownerid }}</td>
+
     </tr>
     {% endfor %}
 </table>
