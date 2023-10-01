@@ -22,11 +22,28 @@
         background-color: #333;
         color: white;
     }
+
+    /* Style for the search container */
+    .search-container {
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    /* Style for the search input */
+    #search {
+        padding: 10px;
+        border: 2px solid #333;
+        border-radius: 4px;
+        width: 300px;
+        font-size: 16px;
+    }
 </style>
+
 
 <center><h1>This is Admin Customer page</h1></center>
 <center><u><h2>View all Customers</h2></u></center>
 <center><h3>Total Count:{{count}}</h3></center>
+
 <table align="center">
     <tr align="center">
         <th>Customer ID</th>
@@ -50,5 +67,6 @@
     </tr>
     {% endfor %}
 </table>
+
 
 {% endblock %}
