@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.db.models import Q
-from .forms import AddOwnerForm
+from .forms import AddOwnerForm,AddCarForm
 
 
 
@@ -33,23 +33,16 @@ from django.shortcuts import render, redirect
 from .models import Car  # Import the Car model
 
 def addcar(request):
-    if request.method == "POST":
-        model = request.POST["model"]
-        color = request.POST["color"]
-        capacity = request.POST["capacity"]
-
-        car = Car(
-            model=model,
-            color=color,
-            capacity=capacity
-        )
-        Car.save(car)
-
-        msg = "Car added Successfully!!"
-
-        return render(request, "addcar.html", {"msg": msg})
-
-    return render(request, "addcar.html")
+    msg=""
+    form=AddCarForm   #non parameterized constructor
+    if request.method=="POST":
+        form1=AddCarForm(request.POST)   #here request.POST means form data-parameterized constructor
+        if form1.is_valid:
+            form1.save()   #this will save the form data in the owner_table
+            # return HttpResponse("added successfully")
+            msg="Car added Successfully"
+            return render(request,"addowner.html",{"form":form,"msg":msg})
+    return render(request,"addcar.html",{"form":form,"msg":msg})  
 
 
 def updatecar(request):

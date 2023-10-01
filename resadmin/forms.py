@@ -1,5 +1,5 @@
 from django import forms
-from .models import Owner
+from .models import Owner,Car
 class AddOwnerForm(forms.ModelForm):
     class Meta:
         model=Owner  #you tell for which model you want to create a form
@@ -7,4 +7,10 @@ class AddOwnerForm(forms.ModelForm):
         exclude={"password"}  #this will exclude any field you want
         labels={"city":"Enter the city","gender":"Select Gender"}  #you can change label name int the form
 
-        
+
+class AddCarForm(forms.ModelForm):
+    class Meta:
+        model=Car
+        fields="__all__"
+        labels={"color":"Select Color","capacity":"Select Capacity"}  #you can change label name int the form
+

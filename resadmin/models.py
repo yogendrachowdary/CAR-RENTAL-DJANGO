@@ -44,6 +44,9 @@ class Car(models.Model):
     color=models.CharField(max_length=150,choices=color_choices)
     capacity_choice=((8,8),(4,4))
     capacity=models.IntegerField(blank=False,choices=capacity_choice)
+    year = models.PositiveIntegerField(blank=False)  # Example: Year of the car
+    price = models.CharField(max_length=15,blank=False)  # Example: Price of the car
+    manufacturer = models.CharField(max_length=100,blank=False)  # Example: Car manufacturer
 
     class Meta:
         db_table="car_table"

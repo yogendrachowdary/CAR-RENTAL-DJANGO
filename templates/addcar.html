@@ -1,14 +1,14 @@
 {% extends 'adminhome.html' %}
 
 {% block 'body' %}
+
+
 <head>
-    <title>{% block 'title' %} Add Car {% endblock %}</title>
+    <title>{% block 'title' %} Add car {% endblock %}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
         }
 
         .container {
@@ -19,11 +19,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        h2 {
-            text-align: center;
-            text-decoration: underline;
-        }
-
         .form-group {
             margin-bottom: 15px;
         }
@@ -32,8 +27,7 @@
             font-weight: bold;
         }
 
-        .form-group input,
-        .form-group select {
+        .form-group input {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -56,34 +50,15 @@
 </head>
 <body>
     <div class="container">
-        <u><h2>Add Car</h2></u>
+        <u><h2>ADD CAR</h2></u>
         <h3 style="color: red;">{{msg}}</h3>
-
-        <form method="post">
+        <form method="post" >
             {% csrf_token %}
-            <div class="form-group">
-                <label for="model">Model:</label>
-                <input type="text" id="model" name="model" required>
-            </div>
-            <div class="form-group">
-                <label for="color">Color:</label>
-                <select id="color" name="color" required>
-                    <option value="red">RED</option>
-                    <option value="black">BLACK</option>
-                    <option value="white">WHITE</option>
-                    <option value="blue">BLUE</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="capacity">Capacity:</label>
-                <select id="capacity" name="capacity" required>
-                    <option value="8">8</option>
-                    <option value="4">4</option>
-                </select>
-            </div>
-            <div class="button-container">
-                <button class="button" type="submit">ADD</button>
-            </div>
+
+            {{form.as_p}}
+            
+            <center><button type="submit">Submit</button></center>
+
         </form>
     </div>
 </body>

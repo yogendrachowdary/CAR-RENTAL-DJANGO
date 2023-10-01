@@ -1,4 +1,7 @@
+{% extends 'adminhome.html' %}
 
+{% block 'body' %}
+<title>{% block 'title' %}viewcustomers{% endblock %}</title>
 
 <style>
     /* Internal CSS for table styling */
@@ -43,3 +46,4 @@
     {% endfor %}
 </table>
 
+{% endblock %}
