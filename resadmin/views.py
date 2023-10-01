@@ -162,7 +162,17 @@ def addowner(request):
     return render(request,"addowner.html",{"form":form,"msg":msg})  
 
 def deleteowner(request):
-    return render(request,"deleteowner.html")  
+    owner=Owner.objects.all()
+    count=Owner.objects.count()
+    return render(request, "deleteowner.html",{"ownerdata":owner,"count":count})
+
+def ownerdeletion(request,oid):
+    #Customer.objects.filter(customerid=cid).delete()   #here we are filtering based on id
+    # return HttpResponse("customerdeleted successfullly")
+    #WE can also write like this
+    owner=Owner.objects.get(pk=oid)   #here pk means primary key it is keyword in django
+    owner.delete()
+    return redirect("viewowners") 
 
 def updateowner(request):
     return render(request,"updateowner.html")  

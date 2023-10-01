@@ -22,6 +22,7 @@ urlpatterns = [
         path("adminowners", views.adminowners, name="adminowners"),
         path("addowner", views.addowner, name="addowner"),
         path("deleteowner", views.deleteowner, name="deleteowner"),
+        path("ownerdeletion/<int:oid>", views.ownerdeletion, name="ownerdeletion"),
         path("updateowner", views.updateowner, name="updateowner"),
         path("viewowners", views.viewowners, name="viewowners"),
 
